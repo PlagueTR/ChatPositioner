@@ -50,21 +50,18 @@ configurations {
 
 repositories {
     maven { url = 'https://maven.neoforged.net/releases' }
+    maven { url = "https://api.modrinth.com/maven" }
 }
 
 dependencies {
     if (rootProject.architectury_loom_id == 'dev.architectury.loom-no-remap') {
         neoForge "net.neoforged:neoforge:$rootProject.neoforge_version"
 
-        implementation("me.shedaniel.cloth:cloth-config-neoforge:${rootProject.common_cloth_config_version}")
-
         common(project(path: ':common')) { transitive = false }
         shadowCommon(project(path: ':common', configuration: "transformProductionNeoForge")) { transitive = false }
     }
     else {
         neoForge "net.neoforged:neoforge:$rootProject.neoforge_version"
-
-        modImplementation("me.shedaniel.cloth:cloth-config-neoforge:${rootProject.common_cloth_config_version}")
 
         common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
         shadowBundle project(path: ':common', configuration: 'transformProductionNeoForge')

@@ -23,7 +23,7 @@ architectury {
 loom {
     accessWidenerPath = project(":common").loom.accessWidenerPath
     forge {
-        mixinConfig "example_mod.mixins.json"
+        mixinConfig "chatpositioner.mixins.json"
     }
 }
 
@@ -52,14 +52,14 @@ configurations {
 }
 
 repositories {
-    maven { url = "https://api.modrinth.com/maven"}
+    maven { url = "https://api.modrinth.com/maven" }
 }
 
 dependencies {
     if (rootProject.architectury_loom_id == 'dev.architectury.loom-no-remap') {
         forge "net.minecraftforge:forge:$rootProject.forge_version"
 
-        implementation("me.shedaniel.cloth:cloth-config-forge:${rootProject.common_cloth_config_version}")
+        implementation "maven.modrinth:framinglib:1.0.0+1.16.5-Forge"
 
         common(project(path: ':common')) { transitive = false }
         shadowCommon(project(path: ':common', configuration: "transformProductionForge")) { transitive = false }
@@ -67,7 +67,7 @@ dependencies {
     else {
         forge "net.minecraftforge:forge:$rootProject.forge_version"
 
-        modImplementation("me.shedaniel.cloth:cloth-config-forge:${rootProject.common_cloth_config_version}")
+        modImplementation "maven.modrinth:framinglib:1.0.0+1.16.5-Forge"
 
         common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
         shadowBundle project(path: ':common', configuration: 'transformProductionForge')
