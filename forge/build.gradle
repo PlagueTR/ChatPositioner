@@ -59,7 +59,7 @@ dependencies {
     if (rootProject.architectury_loom_id == 'dev.architectury.loom-no-remap') {
         forge "net.minecraftforge:forge:$rootProject.forge_version"
 
-        implementation "maven.modrinth:framinglib:1.0.0+1.16.5-Forge"
+        api "maven.modrinth:framinglib:${rootProject.framinglib_version}-Forge"
 
         common(project(path: ':common')) { transitive = false }
         shadowCommon(project(path: ':common', configuration: "transformProductionForge")) { transitive = false }
@@ -67,7 +67,7 @@ dependencies {
     else {
         forge "net.minecraftforge:forge:$rootProject.forge_version"
 
-        modImplementation "maven.modrinth:framinglib:1.0.0+1.16.5-Forge"
+        modApi "maven.modrinth:framinglib:${rootProject.framinglib_version}-Forge"
 
         common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
         shadowBundle project(path: ':common', configuration: 'transformProductionForge')

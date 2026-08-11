@@ -28,7 +28,10 @@ public class GeneralOptionsScreen {
                 config.getAlignmentSizeOffset(),
                 new TextComponent("Chat HUD")
             )
-            .setDefaultAlignmentSizeOffset(defaults.getAlignmentSizeOffset())
+            .setDefaultValue(defaults.getAlignmentSizeOffset())
+            .setSaveConsumer(
+                config::setAlignmentSizeOffset
+            )
             .setNameAlignment(Alignments.HAlignment.RIGHT, Alignments.VAlignment.TOP)
             .setButtonsAlignment(Alignments.HAlignment.RIGHT, Alignments.VAlignment.BOTTOM);
 

@@ -59,7 +59,7 @@ dependencies {
 
         implementation "net.fabricmc.fabric-api:fabric-api:$rootProject.fabric_api_version"
 
-        implementation "maven.modrinth:framinglib:1.0.0+1.16.5-Fabric"
+        api "maven.modrinth:framinglib:${rootProject.framinglib_version}-Fabric"
 
         implementation("com.terraformersmc:modmenu:${rootProject.fabric_mod_menu_version}") {
             exclude module: "fabric-api"
@@ -74,7 +74,7 @@ dependencies {
 
         modImplementation "net.fabricmc.fabric-api:fabric-api:$rootProject.fabric_api_version"
 
-        modImplementation "maven.modrinth:framinglib:1.0.0+1.16.5-Fabric"
+        modApi "maven.modrinth:framinglib:${rootProject.framinglib_version}-Fabric"
 
         modImplementation("com.terraformersmc:modmenu:${rootProject.fabric_mod_menu_version}") {
             exclude module: "fabric-api"
