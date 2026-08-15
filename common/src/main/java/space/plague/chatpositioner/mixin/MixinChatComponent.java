@@ -17,9 +17,7 @@ public class MixinChatComponent {
 
     @Inject(
         method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;I)V",
-        at = @At(
-            value = "HEAD"
-        )
+        at = @At("HEAD")
     )
     private void beforeChatRender(PoseStack poseStack, int i, CallbackInfo ci) {
         ModConfig config = Main.getConfig();
@@ -34,9 +32,7 @@ public class MixinChatComponent {
 
     @Inject(
         method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;I)V",
-        at = @At(
-            value = "TAIL"
-        )
+        at = @At("RETURN")
     )
     private void afterChatRender(PoseStack poseStack, int i, CallbackInfo ci) {
         poseStack.popPose();
